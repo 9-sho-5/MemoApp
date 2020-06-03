@@ -11,6 +11,9 @@ import  RealmSwift
 
 class WritePopupViewController: UIViewController, UITextFieldDelegate {
 
+    var models :[String] = []
+    
+    @IBOutlet var uiView: UIView!
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
     
@@ -19,7 +22,15 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        textField.placeholder = "Write Somothing"
+        textField.delegate = self
+        
+        uiView.layer.cornerRadius = 8
+        addButton.layer.cornerRadius = 8
+        
+        uiView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0) // 上向きの影
+        uiView.layer.shadowRadius = 3;
+        uiView.layer.shadowOpacity = 0.8;
     }
     
 //    // ポップアップの外側をタップした時にポップアップを閉じる
@@ -57,6 +68,8 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
             memo.text = textField.text ?? ""
             realm.add(memo)
         }
+        
+        textField.text = ""
     }
     
     /*

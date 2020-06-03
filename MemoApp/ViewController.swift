@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let realm = try! Realm()
     
-    var models = [""]
+    var models :[String] = []
     
     var notificationToken: NotificationToken?
     
@@ -80,11 +80,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = memos[indexPath.row].text
+        models.append(memos[indexPath.row].text)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 50
     }
     
     @IBAction func didTapSort() {
@@ -131,5 +132,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         table.reloadData()
     }
+    
 }
-
