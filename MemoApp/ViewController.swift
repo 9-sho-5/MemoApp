@@ -14,7 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var table: UITableView!
     @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var saveButton: UIButton!
-    @IBOutlet var textField: UITextField!
+
+    @IBOutlet var searchBar: UISearchBar!
     
     var memos: Results<Memo>!
     var folders: Results<Folder>!
@@ -23,13 +24,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var models :[String] = []
     
+    var searchMemo = [String]()
+    var searching = false
+    
     var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        models = []
+
         saveButton.layer.cornerRadius = 8
         
+        searchBar.delegate = self
         table.delegate = self
         table.dataSource = self
         
@@ -45,7 +51,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memos.count
+        
+        if searching {
+            return searchMemo.count
+        } else {
+            return memos.count
+        }
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -83,8 +94,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = memos[indexPath.row].text
-        models.append(memos[indexPath.row].text)
+        
+        if searching {
+            cell.textLabel?.text = searchMemo[indexPath.row]
+        } else {
+            cell.textLabel?.text = memos[indexPath.row].text
+            models.append(memos[indexPath.row].text)
+        }
         return cell
     }
     
@@ -111,7 +127,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     
     @IBAction func save() {
-        let folder = Folder()
+//        let folder = Folder()
 //            //Folderが0の時
 //        if folders.count == 0 {
 //            //folderId = 1
@@ -140,6 +156,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 ////        //folderId = 2  //folderId = 3   以降繰り返し
 //        folderId = folderId + 1
         
+        table.reloadData()
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchMemo = models.filter({$0.prefix(searchText.count) == searchText})
+        searching = true
+        table.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
         table.reloadData()
     }
 }
