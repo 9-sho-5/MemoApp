@@ -31,6 +31,26 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
         uiView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0) // 上向きの影
         uiView.layer.shadowRadius = 3;
         uiView.layer.shadowOpacity = 0.8;
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            } else {
+                let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                self.view.frame.origin.y -= suggestionHeight
+            }
+        }
     }
     
 //    // ポップアップの外側をタップした時にポップアップを閉じる
@@ -62,7 +82,6 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func add() {
         let memo = Memo()
-//        let folder = Folder()
         
         try! realm.write {
             memo.text = textField.text ?? ""
@@ -82,4 +101,13 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
 }

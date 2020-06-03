@@ -10,9 +10,10 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var table: UITableView!
     @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var saveButton: UIButton!
     @IBOutlet var textField: UITextField!
     
     var memos: Results<Memo>!
@@ -26,6 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveButton.layer.cornerRadius = 8
         
         table.delegate = self
         table.dataSource = self
@@ -47,12 +50,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-//        models.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .automatic)
+//            models.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
             let realm = try! Realm()
             try! realm.write {
                 realm.delete(self.memos[indexPath.row])
             }
+            models.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
         }
     }
@@ -122,15 +126,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            folderId = folderId + 1
 //        }
         
+//
+//        try! realm.write {
+//
+//            folder.name = //入力した値
+//            //作成日時の追加
+//            folder.date = Date()
+//        }
         
-        try! realm.write {
-            //作成日時の追加
-            folder.date = Date()
-        }
-//        //folderId = 2  //folderId = 3   以降繰り返し
+        
+        
+        
+////        //folderId = 2  //folderId = 3   以降繰り返し
 //        folderId = folderId + 1
         
         table.reloadData()
     }
-    
 }
