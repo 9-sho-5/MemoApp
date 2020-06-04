@@ -53,22 +53,6 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    // ポップアップの外側をタップした時にポップアップを閉じる
-//      override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//          var tapLocation: CGPoint = CGPoint()
-//          // タッチイベントを取得する
-//          let touch = touches.first
-//          // タップした座標を取得する
-//          tapLocation = touch!.location(in: self.view)
-//
-//          let popUpView: UIView = self.view.viewWithTag(100)! as UIView
-//
-//          if !popUpView.frame.contains(tapLocation) {
-//              self.dismiss(animated: false, completion: nil)
-//          }
-//      }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -76,10 +60,12 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func tappedAddButton_TouchUpInside(_ sender: UIButton){
-        dismiss(animated: true)
+    @IBAction func dismissAddPopup(_ sender: Any) {
+        UIView.animate(withDuration: 0.0, delay: 0.2, options: [.curveLinear], animations: {
+            self.uiView.center.y += 100.0
+        }, completion: nil)
     }
-
+    
     @IBAction func add() {
         let memo = Memo()
         

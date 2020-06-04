@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search"/>
+                                    <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="search"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="x7J-yb-fzc">
@@ -76,8 +76,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yDR-PU-lNT">
-                        <barButtonItem key="leftBarButtonItem" image="folder.fill" catalog="system" id="Osb-Vm-R31">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="k2Y-Ab-ORj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="leftBarBtnClickedWithSender:" destination="BYZ-38-t0r" id="ygi-Ot-vif"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Edit" id="MJA-ed-UEq">
@@ -116,7 +119,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7N-4O-H2w">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <connections>
-                                    <segue destination="GyZ-8F-IPX" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="LCx-Tm-kPz"/>
+                                    <action selector="dismissAddPopup:" destination="fCc-yp-rL7" eventType="touchUpInside" id="ZBM-M8-d2i"/>
+                                    <segue destination="GyZ-8F-IPX" kind="presentation" modalTransitionStyle="crossDissolve" id="Fzj-fq-CuR"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZj-N1-Pqn">
@@ -199,7 +203,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.fill" catalog="system" width="128" height="95"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>

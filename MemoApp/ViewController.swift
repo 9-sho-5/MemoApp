@@ -26,14 +26,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var searchMemo = [String]()
     var searching = false
+    var topSafeAreaHeight: CGFloat = 0
+    private var searchBarHeight: CGFloat = 44
     
     var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        models = []
-
         saveButton.layer.cornerRadius = 8
+        
+        table.contentOffset = CGPoint(x: 0, y: searchBarHeight)
+        
+        searchBar.showsCancelButton = false
         
         searchBar.delegate = self
         table.delegate = self
@@ -58,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return memos.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
 //            models.remove(at: indexPath.row)
@@ -68,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 realm.delete(self.memos[indexPath.row])
             }
             models.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
     
@@ -106,6 +110,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    @IBAction func leftBarBtnClicked(sender: UIButton) {
+        // 一瞬で切り替わると不自然なのでアニメーションを付与する
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveLinear], animations: {
+                self.table.contentOffset = CGPoint(x: 0, y: -self.topSafeAreaHeight)
+        }, completion: nil)
     }
     
     @IBAction func didTapSort() {
@@ -162,7 +181,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchMemo = models.filter({$0.prefix(searchText.count) == searchText})
+        searchMemo = models.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         table.reloadData()
     }
@@ -170,6 +189,8 @@ extension ViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
         table.reloadData()
     }
 }
