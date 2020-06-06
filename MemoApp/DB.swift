@@ -22,6 +22,7 @@ class Memo: Object {
     @objc dynamic var id: String = NSUUID().uuidString
     @objc dynamic var text: String = ""
     @objc dynamic var folderId: String = NSUUID().uuidString
+    @objc dynamic var createdAt: Date!
     
     //belongs_to
     let folder = LinkingObjects(fromType: Folder.self, property: "memos")

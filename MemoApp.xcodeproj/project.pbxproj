@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DC417920826CDCAD21B8D20 /* Pods_MemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21978A7EEDB77C34D567CD5 /* Pods_MemoApp.framework */; };
+		AE449B99248BB54700414898 /* MemoToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE449B98248BB54700414898 /* MemoToModel.swift */; };
+		AE449B9C248BB5D800414898 /* CollectionMemoToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE449B9B248BB5D800414898 /* CollectionMemoToModel.swift */; };
 		AE9F318E2486895D00149458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F318D2486895D00149458 /* AppDelegate.swift */; };
 		AE9F31902486895D00149458 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F318F2486895D00149458 /* SceneDelegate.swift */; };
 		AE9F31922486895D00149458 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31912486895D00149458 /* ViewController.swift */; };
 		AE9F31952486895D00149458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31932486895D00149458 /* Main.storyboard */; };
 		AE9F31972486895F00149458 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31962486895F00149458 /* Assets.xcassets */; };
 		AE9F319A2486895F00149458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31982486895F00149458 /* LaunchScreen.storyboard */; };
-		AE9F31A324868F8700149458 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A224868F8700149458 /* Realm */; };
-		AE9F31A524868F8700149458 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A424868F8700149458 /* RealmSwift */; };
+		AE9F31A324868F8700149458 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A224868F8700149458 /* SwiftPackageProductDependency */; };
+		AE9F31A524868F8700149458 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A424868F8700149458 /* SwiftPackageProductDependency */; };
 		AE9F31A724869F5500149458 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31A624869F5500149458 /* DB.swift */; };
 		AE9F31A92487525C00149458 /* WritePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31A82487525C00149458 /* WritePopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4475DD3B378A875A52AA7E63 /* Pods-MemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoApp.release.xcconfig"; path = "Target Support Files/Pods-MemoApp/Pods-MemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		81C815D463F5EF819DC80C41 /* Pods-MemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoApp.debug.xcconfig"; path = "Target Support Files/Pods-MemoApp/Pods-MemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AE449B98248BB54700414898 /* MemoToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoToModel.swift; sourceTree = "<group>"; };
+		AE449B9B248BB5D800414898 /* CollectionMemoToModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMemoToModel.swift; sourceTree = "<group>"; };
 		AE9F318A2486895D00149458 /* MemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9F318D2486895D00149458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9F318F2486895D00149458 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +37,7 @@
 		AE9F319B2486895F00149458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9F31A624869F5500149458 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		AE9F31A82487525C00149458 /* WritePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePopupViewController.swift; sourceTree = "<group>"; };
+		E21978A7EEDB77C34D567CD5 /* Pods_MemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,19 +45,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9F31A524868F8700149458 /* RealmSwift in Frameworks */,
-				AE9F31A324868F8700149458 /* Realm in Frameworks */,
+				AE9F31A524868F8700149458 /* BuildFile in Frameworks */,
+				AE9F31A324868F8700149458 /* BuildFile in Frameworks */,
+				6DC417920826CDCAD21B8D20 /* Pods_MemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F932CA076EB130164D8FFC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81C815D463F5EF819DC80C41 /* Pods-MemoApp.debug.xcconfig */,
+				4475DD3B378A875A52AA7E63 /* Pods-MemoApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AE449B9A248BB55500414898 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE449B98248BB54700414898 /* MemoToModel.swift */,
+				AE449B9B248BB5D800414898 /* CollectionMemoToModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AE9F31812486895D00149458 = {
 			isa = PBXGroup;
 			children = (
 				AE9F318C2486895D00149458 /* MemoApp */,
 				AE9F318B2486895D00149458 /* Products */,
+				4F932CA076EB130164D8FFC9 /* Pods */,
+				ECDEA73A592BA71F4163061B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +94,7 @@
 		AE9F318C2486895D00149458 /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				AE449B9A248BB55500414898 /* Model */,
 				AE9F318D2486895D00149458 /* AppDelegate.swift */,
 				AE9F318F2486895D00149458 /* SceneDelegate.swift */,
 				AE9F31912486895D00149458 /* ViewController.swift */,
@@ -77,6 +108,14 @@
 			path = MemoApp;
 			sourceTree = "<group>";
 		};
+		ECDEA73A592BA71F4163061B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E21978A7EEDB77C34D567CD5 /* Pods_MemoApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -84,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE9F319E2486895F00149458 /* Build configuration list for PBXNativeTarget "MemoApp" */;
 			buildPhases = (
+				EA601DEC22483193FD7D0F2B /* [CP] Check Pods Manifest.lock */,
 				AE9F31862486895D00149458 /* Sources */,
 				AE9F31872486895D00149458 /* Frameworks */,
 				AE9F31882486895D00149458 /* Resources */,
+				83E7B9D14D7A7C012237DC31 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -94,8 +135,8 @@
 			);
 			name = MemoApp;
 			packageProductDependencies = (
-				AE9F31A224868F8700149458 /* Realm */,
-				AE9F31A424868F8700149458 /* RealmSwift */,
+				AE9F31A224868F8700149458 /* SwiftPackageProductDependency */,
+				AE9F31A424868F8700149458 /* SwiftPackageProductDependency */,
 			);
 			productName = MemoApp;
 			productReference = AE9F318A2486895D00149458 /* MemoApp.app */;
@@ -126,7 +167,7 @@
 			);
 			mainGroup = AE9F31812486895D00149458;
 			packageReferences = (
-				AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = AE9F318B2486895D00149458 /* Products */;
 			projectDirPath = "";
@@ -150,6 +191,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		83E7B9D14D7A7C012237DC31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoApp/Pods-MemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemoApp/Pods-MemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemoApp/Pods-MemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA601DEC22483193FD7D0F2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AE9F31862486895D00149458 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,8 +240,10 @@
 			files = (
 				AE9F31922486895D00149458 /* ViewController.swift in Sources */,
 				AE9F31A92487525C00149458 /* WritePopupViewController.swift in Sources */,
+				AE449B99248BB54700414898 /* MemoToModel.swift in Sources */,
 				AE9F31A724869F5500149458 /* DB.swift in Sources */,
 				AE9F318E2486895D00149458 /* AppDelegate.swift in Sources */,
+				AE449B9C248BB5D800414898 /* CollectionMemoToModel.swift in Sources */,
 				AE9F31902486895D00149458 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +386,7 @@
 		};
 		AE9F319F2486895F00149458 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81C815D463F5EF819DC80C41 /* Pods-MemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -319,6 +405,7 @@
 		};
 		AE9F31A02486895F00149458 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4475DD3B378A875A52AA7E63 /* Pods-MemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,7 +446,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
@@ -370,14 +457,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AE9F31A224868F8700149458 /* Realm */ = {
+		AE9F31A224868F8700149458 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */;
 			productName = Realm;
 		};
-		AE9F31A424868F8700149458 /* RealmSwift */ = {
+		AE9F31A424868F8700149458 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

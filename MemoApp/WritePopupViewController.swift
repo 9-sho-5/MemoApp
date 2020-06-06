@@ -7,21 +7,35 @@
 //
 
 import UIKit
-import  RealmSwift
+import RealmSwift
+import SCLAlertView
 
 class WritePopupViewController: UIViewController, UITextFieldDelegate {
-
+    
     var models :[String] = []
     
+    @IBOutlet weak var prioritySegment: UISegmentedControl!
     @IBOutlet var uiView: UIView!
     @IBOutlet var textField: UITextField!
     @IBOutlet var addButton: UIButton!
+    
+    let memoCollection = CollectionMemoToModel.sharedInstance
     
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if memoCollection.memoCollectionToModels.count == 0 {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let timeoutAction: SCLAlertView.SCLTimeoutConfiguration.ActionType = {
+                
+        }
+        let alertView = SCLAlertView(appearance: appearance)
+            alertView.showInfo("Info", subTitle: "優先度を選択してタスク管理に役立てよう！\n優先度：😰[⭐️⭐️⭐️⭐️⭐️]\n　　 　  😅[⭐️⭐️⭐️⭐️　  ]\n　 　　  🙂[⭐️⭐️⭐️　  　  ]\n　 　　  🤔[⭐️⭐️　  　  　  ]\n　　　   😪[⭐️　  　  　  　  ]", timeout:SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 5.0, timeoutAction:timeoutAction))
+        }
         textField.placeholder = "Write Somothing"
         textField.delegate = self
         
@@ -67,14 +81,28 @@ class WritePopupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func add() {
-        let memo = Memo()
-        
-        try! realm.write {
-            memo.text = textField.text ?? ""
-            realm.add(memo)
+        if textField.text!.isEmpty {
+            SCLAlertView().showError("Error", subTitle: "記述がありません") // Error
+        } else {
+            
+            let memo = Memo()
+            
+            try! realm.write {
+                memo.createdAt = Date()
+                memo.text = textField.text ?? ""
+                realm.add(memo)
         }
+            
+            let memoToModel = MemoToModel()
+            
+            memoToModel.text = textField.text!
+            memoToModel.priority = MemoPriority(rawValue: prioritySegment.selectedSegmentIndex)!
+            self.memoCollection.addTodoCollection(memoToModel: memoToModel)
+            print(self.memoCollection.memoCollectionToModels)
         
-        textField.text = ""
+            textField.text = ""
+            
+        }
     }
     
     /*

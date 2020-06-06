@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GyZ-8F-IPX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GyZ-8F-IPX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -92,6 +92,7 @@
                             <barButtonItem image="square.and.pencil" catalog="system" id="cIR-gs-ffK">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
+                                    <action selector="alert" destination="BYZ-38-t0r" id="0oR-F3-37p"/>
                                     <segue destination="fCc-yp-rL7" kind="presentation" id="Icm-aO-xQ7"/>
                                 </connections>
                             </barButtonItem>
@@ -106,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="80.357142857142847"/>
+            <point key="canvasLocation" x="1031.8840579710145" y="79.6875"/>
         </scene>
         <!--Write Popup View Controller-->
         <scene sceneID="huU-LO-Q6a">
@@ -127,19 +128,16 @@
                                 <rect key="frame" x="10" y="731" width="394" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-WX-Hme">
-                                        <rect key="frame" x="10" y="20" width="374" height="50"/>
+                                        <rect key="frame" x="10" y="20" width="374" height="46"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="abF-LU-3x1"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fge-qo-qCx">
-                                        <rect key="frame" x="90" y="95" width="214" height="45"/>
+                                        <rect key="frame" x="227" y="84" width="135" height="49"/>
                                         <color key="backgroundColor" red="0.98545712230000004" green="0.87907761340000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="p4b-k6-EZr"/>
+                                            <constraint firstAttribute="width" constant="135" id="8up-eq-iPP"/>
                                         </constraints>
                                         <state key="normal" title="Add">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,16 +146,36 @@
                                             <action selector="add" destination="fCc-yp-rL7" eventType="touchUpInside" id="SLU-7L-Wpa"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="CoS-pY-QLP">
+                                        <rect key="frame" x="17" y="86" width="185" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="aSY-5C-lze"/>
+                                            <constraint firstAttribute="width" constant="185" id="i2u-1U-344"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="😪"/>
+                                            <segment title="🤔"/>
+                                            <segment title="🙂"/>
+                                            <segment title="😅"/>
+                                            <segment title="😰"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="CoS-pY-QLP" secondAttribute="bottom" constant="24" id="7x7-u5-eBb"/>
+                                    <constraint firstItem="fge-qo-qCx" firstAttribute="leading" secondItem="CoS-pY-QLP" secondAttribute="trailing" constant="25" id="BVI-Vd-b8l"/>
                                     <constraint firstItem="Ss1-WX-Hme" firstAttribute="leading" secondItem="fZj-N1-Pqn" secondAttribute="leading" constant="10" id="Bio-99-tdr"/>
                                     <constraint firstItem="Ss1-WX-Hme" firstAttribute="top" secondItem="fZj-N1-Pqn" secondAttribute="top" constant="20" id="E4X-sg-xlE"/>
-                                    <constraint firstAttribute="bottom" secondItem="fge-qo-qCx" secondAttribute="bottom" constant="10" id="GOl-L9-1Tb"/>
+                                    <constraint firstItem="fge-qo-qCx" firstAttribute="top" secondItem="Ss1-WX-Hme" secondAttribute="bottom" constant="18" id="JcV-jS-Gml"/>
                                     <constraint firstAttribute="trailing" secondItem="Ss1-WX-Hme" secondAttribute="trailing" constant="10" id="N8A-9w-lVl"/>
+                                    <constraint firstItem="fge-qo-qCx" firstAttribute="leading" secondItem="CoS-pY-QLP" secondAttribute="trailing" constant="25" id="Wcg-xB-85Q"/>
                                     <constraint firstAttribute="height" constant="150" id="gF2-7h-7po"/>
-                                    <constraint firstItem="fge-qo-qCx" firstAttribute="leading" secondItem="fZj-N1-Pqn" secondAttribute="leading" constant="90" id="jlf-Hc-iIs"/>
-                                    <constraint firstAttribute="trailing" secondItem="fge-qo-qCx" secondAttribute="trailing" constant="90" id="nbb-RK-fkq"/>
+                                    <constraint firstAttribute="trailing" secondItem="fge-qo-qCx" secondAttribute="trailing" constant="32" id="lzs-Yf-Wo4"/>
+                                    <constraint firstItem="CoS-pY-QLP" firstAttribute="top" secondItem="Ss1-WX-Hme" secondAttribute="bottom" constant="20" id="p4u-p8-Tm3"/>
+                                    <constraint firstAttribute="bottom" secondItem="fge-qo-qCx" secondAttribute="bottom" constant="17" id="s73-hm-eSF"/>
+                                    <constraint firstItem="CoS-pY-QLP" firstAttribute="leading" secondItem="fZj-N1-Pqn" secondAttribute="leading" constant="17" id="t4O-e2-Wzz"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -174,6 +192,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="fge-qo-qCx" id="f7l-6B-yLg"/>
+                        <outlet property="prioritySegment" destination="CoS-pY-QLP" id="Vd5-0q-A1P"/>
                         <outlet property="textField" destination="Ss1-WX-Hme" id="L1y-ZI-ryT"/>
                         <outlet property="uiView" destination="fZj-N1-Pqn" id="Q8e-93-Vnm"/>
                     </connections>
