@@ -15,6 +15,7 @@ class CollectionMemoToModel: NSObject {
     func fetchMemos() {
     let memoToModel = MemoToModel()
         memoToModel.text = ""
+        memoToModel.detail = ""
         self.memoCollectionToModels.append(memoToModel)
     }
     

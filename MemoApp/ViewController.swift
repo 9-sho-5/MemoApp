@@ -77,7 +77,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             try! realm.write {
                 realm.delete(self.memos[indexPath.row])
             }
-            models.remove(at: indexPath.row)
+            self.memoCollection.memoCollectionToModels.remove(at: indexPath.row)
+            
             UIView.animate(withDuration: 1.5, delay: 0.0, options: [.curveLinear], animations: {
                     tableView.deleteRows(at: [indexPath], with: .top)
             }, completion: nil)
@@ -110,22 +111,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //cell移動設定
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        models.swapAt(sourceIndexPath.row, sourceIndexPath.row)
         
-        let moveObjTmp = models[sourceIndexPath.row]
-        models.remove(at: sourceIndexPath.row)
-        models.insert(moveObjTmp, at: destinationIndexPath.row)
+        let memo = self.memoCollection.memoCollectionToModels[sourceIndexPath.row]
+        self.memoCollection.memoCollectionToModels.remove(at: sourceIndexPath.row)
+        self.memoCollection.memoCollectionToModels.insert(memo, at: destinationIndexPath.row)
+        
+//        models.swapAt(sourceIndexPath.row, sourceIndexPath.row)
+//        
+//        let moveObjTmp = models[sourceIndexPath.row]
+//        models.remove(at: sourceIndexPath.row)
+//        models.insert(moveObjTmp, at: destinationIndexPath.row)
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
         
         if searching {
             cell.textLabel?.text = searchMemo[indexPath.row]
         } else {
             let modelsMemo = self.memoCollection.memoCollectionToModels[indexPath.row]
+            cell.detailTextLabel!.text = modelsMemo.detail
             cell.textLabel!.text = modelsMemo.text
-            
+            let priorityIcon = UILabel(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+            priorityIcon.layer.cornerRadius = 6
+            priorityIcon.text = modelsMemo.priority.face()
+            cell.accessoryView = priorityIcon
+
 //            cell.textLabel?.text = models[indexPath.row]
 //            models.append(memos[indexPath.row].text)
         }
@@ -173,7 +185,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             editButton.title = "Done"
             table.isEditing = true
         }
-            
             table.reloadData()
         }
     
