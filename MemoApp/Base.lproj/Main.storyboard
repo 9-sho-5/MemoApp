@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4O-Dy-9Yo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search" showsCancelButton="YES" id="NNF-IS-ziz">
@@ -37,40 +37,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-xa-pjo">
-                                <rect key="frame" x="0.0" y="721" width="414" height="141"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGC-XM-6xq">
-                                        <rect key="frame" x="82" y="40" width="250" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="3nC-AT-l2U"/>
-                                            <constraint firstAttribute="height" constant="60" id="UWX-iS-pFG"/>
-                                        </constraints>
-                                        <state key="normal" title="Save">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8I-OG-54y"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="iGC-XM-6xq" firstAttribute="leading" secondItem="EOb-xa-pjo" secondAttribute="leading" constant="82" id="64Z-Vd-wnX"/>
-                                    <constraint firstItem="iGC-XM-6xq" firstAttribute="top" secondItem="EOb-xa-pjo" secondAttribute="top" constant="40" id="GVa-4i-2Vb"/>
-                                    <constraint firstAttribute="trailing" secondItem="iGC-XM-6xq" secondAttribute="trailing" constant="82" id="Mq9-6b-Won"/>
-                                    <constraint firstAttribute="bottom" secondItem="iGC-XM-6xq" secondAttribute="bottom" constant="41" id="v3N-Bf-RJs"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k4O-Dy-9Yo" secondAttribute="bottom" constant="130" id="1dp-3V-Wju"/>
                             <constraint firstItem="k4O-Dy-9Yo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7UC-1I-j7B"/>
-                            <constraint firstItem="EOb-xa-pjo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H1T-2s-4vw"/>
+                            <constraint firstItem="k4O-Dy-9Yo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EEa-mh-a0a"/>
                             <constraint firstItem="k4O-Dy-9Yo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QR2-dj-WWu"/>
-                            <constraint firstItem="EOb-xa-pjo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="q0m-ve-Koc"/>
-                            <constraint firstItem="EOb-xa-pjo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qC0-JY-qoz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k4O-Dy-9Yo" secondAttribute="trailing" id="yqE-eb-Sgw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -99,9 +71,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="createMemoButton" destination="cIR-gs-ffK" id="4gg-5O-CHZ"/>
                         <outlet property="editButton" destination="MJA-ed-UEq" id="ouI-3w-487"/>
-                        <outlet property="saveButton" destination="iGC-XM-6xq" id="qdx-fJ-Zbe"/>
                         <outlet property="searchBar" destination="NNF-IS-ziz" id="cjw-WV-dC9"/>
+                        <outlet property="searchButton" destination="k2Y-Ab-ORj" id="b3C-PF-BSZ"/>
                         <outlet property="table" destination="k4O-Dy-9Yo" id="mOs-nU-2U7"/>
                     </connections>
                 </viewController>

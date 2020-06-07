@@ -16,8 +16,8 @@
 		AE9F31952486895D00149458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31932486895D00149458 /* Main.storyboard */; };
 		AE9F31972486895F00149458 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31962486895F00149458 /* Assets.xcassets */; };
 		AE9F319A2486895F00149458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9F31982486895F00149458 /* LaunchScreen.storyboard */; };
-		AE9F31A324868F8700149458 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A224868F8700149458 /* SwiftPackageProductDependency */; };
-		AE9F31A524868F8700149458 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A424868F8700149458 /* SwiftPackageProductDependency */; };
+		AE9F31A324868F8700149458 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A224868F8700149458 /* Realm */; };
+		AE9F31A524868F8700149458 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AE9F31A424868F8700149458 /* RealmSwift */; };
 		AE9F31A724869F5500149458 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31A624869F5500149458 /* DB.swift */; };
 		AE9F31A92487525C00149458 /* WritePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F31A82487525C00149458 /* WritePopupViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,8 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9F31A524868F8700149458 /* BuildFile in Frameworks */,
-				AE9F31A324868F8700149458 /* BuildFile in Frameworks */,
+				AE9F31A524868F8700149458 /* RealmSwift in Frameworks */,
+				AE9F31A324868F8700149458 /* Realm in Frameworks */,
 				6DC417920826CDCAD21B8D20 /* Pods_MemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +60,6 @@
 				81C815D463F5EF819DC80C41 /* Pods-MemoApp.debug.xcconfig */,
 				4475DD3B378A875A52AA7E63 /* Pods-MemoApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -69,6 +68,7 @@
 			children = (
 				AE449B98248BB54700414898 /* MemoToModel.swift */,
 				AE449B9B248BB5D800414898 /* CollectionMemoToModel.swift */,
+				AE9F31A624869F5500149458 /* DB.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,7 +98,6 @@
 				AE9F318D2486895D00149458 /* AppDelegate.swift */,
 				AE9F318F2486895D00149458 /* SceneDelegate.swift */,
 				AE9F31912486895D00149458 /* ViewController.swift */,
-				AE9F31A624869F5500149458 /* DB.swift */,
 				AE9F31932486895D00149458 /* Main.storyboard */,
 				AE9F31A82487525C00149458 /* WritePopupViewController.swift */,
 				AE9F31962486895F00149458 /* Assets.xcassets */,
@@ -135,8 +134,8 @@
 			);
 			name = MemoApp;
 			packageProductDependencies = (
-				AE9F31A224868F8700149458 /* SwiftPackageProductDependency */,
-				AE9F31A424868F8700149458 /* SwiftPackageProductDependency */,
+				AE9F31A224868F8700149458 /* Realm */,
+				AE9F31A424868F8700149458 /* RealmSwift */,
 			);
 			productName = MemoApp;
 			productReference = AE9F318A2486895D00149458 /* MemoApp.app */;
@@ -167,7 +166,7 @@
 			);
 			mainGroup = AE9F31812486895D00149458;
 			packageReferences = (
-				AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */,
+				AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = AE9F318B2486895D00149458 /* Products */;
 			projectDirPath = "";
@@ -446,7 +445,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */ = {
+		AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
@@ -457,14 +456,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AE9F31A224868F8700149458 /* SwiftPackageProductDependency */ = {
+		AE9F31A224868F8700149458 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */;
+			package = AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
 		};
-		AE9F31A424868F8700149458 /* SwiftPackageProductDependency */ = {
+		AE9F31A424868F8700149458 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AE9F31A124868F8700149458 /* RemoteSwiftPackageReference */;
+			package = AE9F31A124868F8700149458 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

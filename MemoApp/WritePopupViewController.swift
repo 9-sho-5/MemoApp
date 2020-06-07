@@ -11,8 +11,7 @@ import RealmSwift
 import SCLAlertView
 
 class WritePopupViewController: UIViewController, UITextFieldDelegate {
-    
-    var models :[String] = []
+
     
     @IBOutlet weak var prioritySegment: UISegmentedControl!
     @IBOutlet var uiView: UIView!

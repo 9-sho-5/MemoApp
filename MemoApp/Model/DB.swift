@@ -23,7 +23,6 @@ class Memo: Object {
     @objc dynamic var text: String = ""
     @objc dynamic var folderId: String = NSUUID().uuidString
     @objc dynamic var createdAt: Date!
-    
     //belongs_to
     let folder = LinkingObjects(fromType: Folder.self, property: "memos")
     
@@ -34,7 +33,6 @@ class Memo: Object {
 }
 
 class MyRealm {
-    
     func createNewMemo(text: String) {
         
         let memo = Memo()
